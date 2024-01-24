@@ -1,34 +1,37 @@
 import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
-import {
-    faCircleXmark,
-    faEllipsisVertical,
-    faCloudUpload,
-    faGlobe,
-    faMagnifyingGlass,
-    faSpinner,
-    faGear,
-    faCoins,
-    faSignOut,
-} from '@fortawesome/free-solid-svg-icons';
-import { faMessage, faPaperPlane, faCircleQuestion, faKeyboard, faUser } from '@fortawesome/free-regular-svg-icons';
+import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import HeadlessTippy from '@tippyjs/react/headless';
 import Tippy from '@tippyjs/react/';
 import 'tippy.js/dist/tippy.css';
 
-import Button from '@/components/Button';
-import { Wrapper as PopperWrapper } from '@/components/Popper';
 import styles from './Header.module.scss';
-import images from '@/components/assests/images';
+import { Wrapper as PopperWrapper } from '@/components/Popper';
+import images from '@/assests/images';
+import Image from '@/components/Image';
 import AccountItem from '@/components/AccountItem';
 import Menu from '@/components/Popper/Menu';
+import Button from '@/components/Button';
+import {
+    CircleQuestionIcon,
+    EllipsisVerticalIcon,
+    Gear,
+    InboxIcon,
+    KeyboardIcon,
+    LanguageIcon,
+    LogoutIcon,
+    MessageIcon,
+    TiktokCoinIcon,
+    UploadIcon,
+    UserIcon,
+} from '@/assests/icons';
 
 const cx = classNames.bind(styles);
 
 const MENU_ITEMS = [
     {
-        icon: <FontAwesomeIcon icon={faGlobe} />,
+        icon: <LanguageIcon />,
         title: 'English',
         children: {
             title: 'Language',
@@ -52,12 +55,12 @@ const MENU_ITEMS = [
         },
     },
     {
-        icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+        icon: <CircleQuestionIcon />,
         title: 'Feedback and help',
         to: '/feedback',
     },
     {
-        icon: <FontAwesomeIcon icon={faKeyboard} />,
+        icon: <KeyboardIcon />,
         title: 'Keyboard shortcuts',
     },
 ];
@@ -85,23 +88,23 @@ function Header() {
 
     const USER_MENU = [
         {
-            icon: <FontAwesomeIcon icon={faUser} />,
+            icon: <UserIcon />,
             title: 'View profile',
             to: '/@hoaa',
         },
         {
-            icon: <FontAwesomeIcon icon={faCoins} />,
+            icon: <TiktokCoinIcon />,
             title: 'Get coins',
             to: '/coin',
         },
         {
-            icon: <FontAwesomeIcon icon={faGear} />,
+            icon: <Gear />,
             title: 'Settings',
             to: '/settings',
         },
         ...MENU_ITEMS,
         {
-            icon: <FontAwesomeIcon icon={faSignOut} />,
+            icon: <LogoutIcon />,
             title: 'Log out',
             separate: true,
         },
@@ -153,17 +156,17 @@ function Header() {
                         <>
                             <Tippy delay={200} content="Upload video" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faCloudUpload} />
+                                    <UploadIcon />
                                 </button>
                             </Tippy>
                             <Tippy delay={200} content="Message" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faPaperPlane} />
+                                    <MessageIcon />
                                 </button>
                             </Tippy>
                             <Tippy delay={200} content="Inbox" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faMessage} />
+                                    <InboxIcon />
                                 </button>
                             </Tippy>
                         </>
@@ -172,11 +175,11 @@ function Header() {
                         {!currentUser ? (
                             // Before login
                             <button className={cx('more-btn')}>
-                                <FontAwesomeIcon icon={faEllipsisVertical} />
+                                <EllipsisVerticalIcon />
                             </button>
                         ) : (
                             // After login
-                            <img
+                            <Image
                                 className={cx('user-avatar')}
                                 src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/d380a4eb3184c7e2ff7884006451cab1~c5_100x100.jpeg?lk3s=a5d48078&x-expires=1706187600&x-signature=4Oc5Hgz6YljchadIv6bCCetL%2FAo%3D"
                                 alt="avatar user"
