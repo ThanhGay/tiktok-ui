@@ -1,10 +1,11 @@
+import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react/headless';
 
 import { Wrapper as PopperWrapper } from '@/components/Popper';
 import MenuItem from './MenuItem';
 import styles from './Menu.module.scss';
-import HeaderMenu from './Header';
+import HeaderMenu from './HeaderMenu';
 import { useState } from 'react';
 
 const cx = classNames.bind(styles);
@@ -62,5 +63,12 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFun
         </Tippy>
     );
 }
+
+Menu.propTypes = {
+    children: PropTypes.node.isRequired,
+    items: PropTypes.array,
+    hideOnClick: PropTypes.bool,
+    onChange: PropTypes.func,
+};
 
 export default Menu;
