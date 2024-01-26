@@ -120,9 +120,9 @@ function Header() {
                         // After login
                         <>
                             <Tippy delay={200} content="Upload video" placement="bottom">
-                                <button className={cx('action-btn')}>
+                                <Link className={cx('action-btn')} to={config.routes.upload}>
                                     <UploadIcon />
-                                </button>
+                                </Link>
                             </Tippy>
                             <Tippy delay={200} content="Message" placement="bottom">
                                 <button className={cx('action-btn')}>
