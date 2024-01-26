@@ -17,6 +17,7 @@ import {
     UserIcon,
     UserActiveIcon,
 } from '@/assests/icons';
+import SuggestAccounts from '@/components/Popper/SuggestAccounts';
 
 const cx = classNames.bind(styles);
 
@@ -61,7 +62,8 @@ function Sidebar() {
                     activeIcon={<UserActiveIcon width="3.2rem" height="3.2rem" />}
                 />
             </Menu>
-            <h3>Suggest account</h3>
+            <SuggestAccounts label="Suggested accounts" showInfo />
+            <SuggestAccounts label="Following accounts" />
         </aside>
     );
 }
