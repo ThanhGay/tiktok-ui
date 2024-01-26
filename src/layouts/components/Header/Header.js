@@ -11,11 +11,15 @@ import SearchBox from '../SearchBox';
 import Button from '@/components/Button/Button';
 import {
     CircleQuestionIcon,
+    DarkmodeIcon,
     EllipsisVerticalIcon,
+    FavoriteIcon,
     Gear,
     InboxIcon,
     KeyboardIcon,
     LanguageIcon,
+    LightbulbIcon,
+    LiveIcon,
     LogoutIcon,
     MessageIcon,
     TiktokCoinIcon,
@@ -28,7 +32,12 @@ const cx = classNames.bind(styles);
 
 const MENU_ITEMS = [
     {
-        icon: <LanguageIcon />,
+        icon: <LightbulbIcon width="2rem" height="2rem" />,
+        title: 'LIVE Creator Hub',
+        to: '/live/creators',
+    },
+    {
+        icon: <LanguageIcon width="2rem" height="2rem" />,
         title: 'English',
         children: {
             title: 'Language',
@@ -52,13 +61,17 @@ const MENU_ITEMS = [
         },
     },
     {
-        icon: <CircleQuestionIcon />,
+        icon: <CircleQuestionIcon width="2rem" height="2rem" />,
         title: 'Feedback and help',
         to: '/feedback',
     },
     {
-        icon: <KeyboardIcon />,
+        icon: <KeyboardIcon width="2rem" height="2rem" />,
         title: 'Keyboard shortcuts',
+    },
+    {
+        icon: <DarkmodeIcon width="2rem" height="2rem" />,
+        title: 'Darkmode',
     },
 ];
 
@@ -78,23 +91,33 @@ function Header() {
 
     const USER_MENU = [
         {
-            icon: <UserIcon />,
+            icon: <UserIcon width="2rem" height="2rem" />,
             title: 'View profile',
             to: '/@hoaa',
         },
         {
-            icon: <TiktokCoinIcon />,
+            icon: <FavoriteIcon width="2rem" height="2rem" />,
+            title: 'Favorites',
+            to: '/@hoaa',
+        },
+        {
+            icon: <TiktokCoinIcon width="2rem" height="2rem" />,
             title: 'Get coins',
             to: '/coin',
         },
         {
-            icon: <Gear />,
+            icon: <LiveIcon width="2rem" height="2rem" />,
+            title: 'LIVE Studio',
+            to: '/live',
+        },
+        {
+            icon: <Gear width="2rem" height="2rem" />,
             title: 'Settings',
             to: '/settings',
         },
         ...MENU_ITEMS,
         {
-            icon: <LogoutIcon />,
+            icon: <LogoutIcon width="2rem" height="2rem" />,
             title: 'Log out',
             separate: true,
         },
@@ -125,15 +148,15 @@ function Header() {
                                 </Link>
                             </Tippy>
                             <Tippy delay={200} content="Message" placement="bottom">
-                                <button className={cx('action-btn')}>
+                                <Link className={cx('action-btn')}>
                                     <MessageIcon />
-                                </button>
+                                </Link>
                             </Tippy>
                             <Tippy delay={200} content="Inbox" placement="bottom">
-                                <button className={cx('action-btn')}>
+                                <Link className={cx('action-btn')}>
                                     <InboxIcon />
                                     <span className={cx('badge')}>12</span>
-                                </button>
+                                </Link>
                             </Tippy>
                         </>
                     )}

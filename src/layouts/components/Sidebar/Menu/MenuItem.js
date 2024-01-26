@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 
 import styles from './Menu.module.scss';
 import React from 'react';
-import { CircleQuestionIcon, HomeIcon, InboxIcon, SearchIcon, UploadIcon } from '@/assests/icons';
 
 const cx = classNames.bind(styles);
 
